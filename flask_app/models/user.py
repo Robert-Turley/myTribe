@@ -1,6 +1,6 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
-from flask_app import EMAIL_REGEX
+from flask_app import EMAIL_REGEX, DATABASE
 
 class User:
     def __init__(self,data):
@@ -35,3 +35,21 @@ class User:
             is_valid = False
             flash("Passwords do not match","error_registration_password_confirm")
         return is_valid
+
+    @classmethod
+    def get_one_validate_email(cls,data):
+        query = "SELECT * FROM users WHERE email = %(email)s;"
+        result = connectToMySQL(DATABASE).query_db(query,data)
+        if len(result) == 0:
+            return True
+        else:
+            return False
+
+    @classmethod
+    def create(cls,data):
+        query = "INSERT INTO users (first_name,last_name,user_name,email,password) VALUES (%(first_name)s,%(last_name)s,%(user_name)s,%(email)s,%(password)s);"
+        result = connectToMySQL(DATABASE).query_db(query,data)
+        return result
+
+    
+
