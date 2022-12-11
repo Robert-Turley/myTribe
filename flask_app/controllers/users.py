@@ -31,7 +31,7 @@ def registration():
     session['email'] = data['email']
     session['user_id'] = user_id
 
-    return redirect('/profile')
+    return redirect('/dashboard')
 
 @app.route('/user/login', methods = ['POST'])
 def process_login():
@@ -57,3 +57,8 @@ def dashboard():
 @app.route('/create/profile')
 def create_profile():
     return render_template('profile.html')
+
+@app.route('/user/logout')
+def process_logout():
+    session.clear()
+    return redirect('/')
