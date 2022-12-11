@@ -9,52 +9,6 @@
 <body>
     <div class="header"><h1>Welcome to myTribe!</h1></div>
     <div class="container">
-        <form class="create" action ="/user/create" method="POST">
-            <h1>Register</h1>
-            <div class="form-group">
-                <label for="first_name">First Name:</label>
-                <input type="text" name="first_name" class="form-control">
-                {% for message in get_flashed_messages(category_filter = ["error_registration_first_name"]) %}
-                    {{message}}
-                {% endfor %}
-            </div>
-            <div class="form-group">
-                <label for="last_name">Last Name:</label>
-                <input type="text" name="last_name" class="form-control">
-                {% for message in get_flashed_messages(category_filter = ["error_registration_last_name"]) %}
-                    {{message}}
-                {% endfor %}
-            </div>
-            <div class="form-group">
-                <label for="user_name">Username:</label>
-                <input type="text" name="user_name" class="form-control">
-                {% for message in get_flashed_messages(category_filter = ["error_registration_user_name"]) %}
-                    {{message}}
-                {% endfor %}
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="text" name="email" class="form-control">
-                {% for message in get_flashed_messages(category_filter = ["error_registration_email"]) %}
-                    {{message}}
-                {% endfor %}
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" name="password" class="form-control">
-                {% for message in get_flashed_messages(category_filter = ["error_registration_password"]) %}
-                    {{message}}
-                {% endfor %}
-            </div>
-            <div class="form-group">
-                <label for="confirm_password">Confirm Password:</label>
-                <input type="password" name="confirm_password" class="form-control">
-                {% for message in get_flashed_messages(category_filter = ["error_registration_password_confirm"]) %}
-                    {{message}}
-                {% endfor %}
-            </div>
-            <button class="register">Register</button>
-        </form>
         <form class="login" action ="/user/login" method="POST">
             <h1>Login</h1>
             <div class="form-group">
@@ -70,6 +24,7 @@
             </div>
             <button class="log">Login</button>
         </form>
+        <h1><a href="/create/profile">Create Account</a></h1>
     </div>
 </body>
 </html>

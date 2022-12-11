@@ -8,6 +8,102 @@
 </head>
 <body>
     <h1>Welcome {{session['first_name']}}</h1>
-    
+    <div class="container">
+        <form class="create" action ="/user/create" method="POST">
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" name="first_name" class="form-control">
+                {% for message in get_flashed_messages(category_filter = ["error_registration_first_name"]) %}
+                    {{message}}
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" name="last_name" class="form-control">
+                {% for message in get_flashed_messages(category_filter = ["error_registration_last_name"]) %}
+                    {{message}}
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="user_name">Username:</label>
+                <input type="text" name="user_name" class="form-control">
+                {% for message in get_flashed_messages(category_filter = ["error_registration_user_name"]) %}
+                    {{message}}
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" name="email" class="form-control">
+                {% for message in get_flashed_messages(category_filter = ["error_registration_email"]) %}
+                    {{message}}
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" class="form-control">
+                {% for message in get_flashed_messages(category_filter = ["error_registration_password"]) %}
+                    {{message}}
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" name="confirm_password" class="form-control">
+                {% for message in get_flashed_messages(category_filter = ["error_registration_password_confirm"]) %}
+                    {{message}}
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="cause1">First Cause:</label>
+                <select class="form-control" name="cause1" id="cause1">
+                    <option value="arts_culture_humanities">Arts, Culture & Humanities</option>
+                    <option value="education">Education</option>
+                    <option value="environment_animals">Environment & Animals</option>
+                    <option value="health">Health</option>
+                    <option value="human_services">Human Services</option>
+                    <option value="international_foreign_affairs">International, Foreign Affairs</option>
+                    <option value="public_societal_benefit">Public, Societal Benefit</option>
+                    <option value="religion_related">Religion Related</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cause2">Second Cause:</label>
+                <select class="form-control" name="cause2" id="cause2">
+                    <option value="arts_culture_humanities">Arts, Culture & Humanities</option>
+                    <option value="education">Education</option>
+                    <option value="environment_animals">Environment & Animals</option>
+                    <option value="health">Health</option>
+                    <option value="human_services">Human Services</option>
+                    <option value="international_foreign_affairs">International, Foreign Affairs</option>
+                    <option value="public_societal_benefit">Public, Societal Benefit</option>
+                    <option value="religion_related">Religion Related</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cause3">Third Cause:</label>
+                <select class="form-control" name="cause3" id="cause3">
+                    <option value="arts_culture_humanities">Arts, Culture & Humanities</option>
+                    <option value="education">Education</option>
+                    <option value="environment_animals">Environment & Animals</option>
+                    <option value="health">Health</option>
+                    <option value="human_services">Human Services</option>
+                    <option value="international_foreign_affairs">International, Foreign Affairs</option>
+                    <option value="public_societal_benefit">Public, Societal Benefit</option>
+                    <option value="religion_related">Religion Related</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="city" name="city" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="state" name="state" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="zip">Zip:</label>
+                <input type="zip" name="zip" class="form-control">
+            </div>
+            <button class="create">Create</button>
+        </form>
 </body>
 </html>

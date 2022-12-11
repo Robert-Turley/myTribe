@@ -54,8 +54,6 @@ def dashboard():
         return redirect ('/')
     return render_template('dashboard.html')
 
-@app.route('/profile')
-def profile():
-    if 'email' not in session:
-        return redirect ('/')
+@app.route('/create/profile')
+def create_profile():
     return render_template('profile.html')
