@@ -40,10 +40,12 @@ class User:
     def get_one_validate_email(cls,data):
         query = "SELECT * FROM users WHERE email = %(email)s;"
         result = connectToMySQL(DATABASE).query_db(query,data)
-        if len(result) == 0:
-            return True
+        
+        if len(result) > 0:
+            current_user = cls(result[0])
+            return current_user
         else:
-            return False
+            return None
 
     @classmethod
     def create(cls,data):

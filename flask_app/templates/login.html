@@ -55,7 +55,7 @@
             </div>
             <button class="register">Register</button>
         </form>
-        <form class="login" action ="/login" method="POST">
+        <form class="login" action ="/user/login" method="POST">
             <h1>Login</h1>
             <div class="form-group">
                 <label for="email">Email:</label>
@@ -64,6 +64,9 @@
             <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" name="password" class="form-control">
+                {% for message in get_flashed_messages(category_filter = ["error_login_password"]) %}
+                    {{message}}
+                {% endfor %}
             </div>
             <button class="log">Login</button>
         </form>
