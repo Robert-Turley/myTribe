@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Tribe</title>
+</head>
+<body>
+    <div class="header"><h1>Create a Tribe</h1></div>
+    <div class="container">
+        <form class="create_tribe" action ="/tribe/new" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" class="form-control">
+                {% for message in get_flashed_messages(category_filter = ['error_tribe_name']) %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" name="location" class="form-control">
+                {% for message in get_flashed_messages(category_filter = ['error_tribe_location']) %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="cause">Cause:</label>
+                <input type="text" name="cause" class="form-control">
+                {% for message in get_flashed_messages(category_filter = ['error_tribe_cause']) %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="funds">Funds:</label>
+                <input type="number" name="funds" class="form-control">
+                {% for message in get_flashed_messages(category_filter = ['error_tribe_funds']) %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            <button class="create_tribe">Create</button>
+        </form>
+    </div>
+</body>
+</html>
