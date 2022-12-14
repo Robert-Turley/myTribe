@@ -54,9 +54,9 @@ def dashboard():
         return redirect ('/')
     return render_template('dashboard.html')
 
-@app.route('/create/profile')
-def create_profile():
-    return render_template('profile.html')
+# @app.route('/create/profile')
+# def create_profile():
+#     return render_template('profile.html')
 
 @app.route('/user/logout')
 def process_logout():

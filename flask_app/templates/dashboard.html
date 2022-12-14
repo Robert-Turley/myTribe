@@ -7,17 +7,33 @@
     <title>Dashboard</title>
 </head>
 <body>
+    <p><a href="/user/logout">Log Out</a></p>
+    <p><a href="#">Profile</a></p>
     <h1>Welcome {{session['first_name']}}</h1>
 
     <h2>Current Campaigns</h2>
     <div>
+        <!-- COUNTDOWN to next campaign HERE -->
         <h3>Local</h3>
-    
+        <!-- Campaign CAUSE -->
+        <!-- Campaign FUNDS -->
+        <!-- Campaign VOTES -->
+        
     </div>
     <div>
+        <!-- COUNTDOWN to next campaign HERE -->
         <h3>Global</h3>
+        <!-- Campaign CAUSE -->
+        <!-- Campaign FUNDS -->
+        <!-- Campaign VOTES -->
 
     </div>
-    <p><a href="/user/logout">Log Out</a></p>
+    <h2>Search Cause by Tribe</h2>
+    <form id="orgForm">
+        <input type="text" name="searchOrg" id="searchOrg">
+        <button>Look up Organization</button>
+    </form>
+
+    <script src="/myTribe/flask_app/static/js/nonprofits.js"></script>
 </body>
 </html>
