@@ -1,4 +1,5 @@
 from flask_app.config.mysqlconnection import connectToMySQL
+from flask_app.models.user import User
 from flask import flash
 from flask_app import EMAIL_REGEX, DATABASE
 
@@ -21,6 +22,28 @@ class Tribe:
         result = connectToMySQL(DATABASE).query_db(query,data)
         return result
 
+    # @classmethod
+    # def find_all():
+    #     query = "SELECT * FROM tribes JOIN users ON users.tribe_id = tribes.id"
+
+
+    # @classmethod
+    # def get_users_for_tribe(cls,data):
+    #     query = "SELECT * FROM tribes LEFT JOIN users ON tribes.id = users.tribe_id WHERE tribes.id = %(id)s;"
+    #     result = connectToMySQL(DATABASE).query_db(query,data)
+    #     tribe_info = cls(result[0])
+    #     for row in result:
+    #         r = {
+    #             "id": row['ninjas.id'],
+    #             "first_name": row['first_name'],
+    #             "last_name": row['last_name'],
+    #             "age": row['age'],
+    #             "created_at": row['created_at'],
+    #             "updated_at": row['updated_at'],
+    #         }
+    #         tribe_info.users.append(User(r))
+    #     return tribe_info
+    
     @staticmethod
     def validate_tribe(data):
         is_valid = True

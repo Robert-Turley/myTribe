@@ -34,4 +34,6 @@ def create_tribe():
 
 @app.route('/tribe/search')
 def display_search_tribe():
-    return render_template('search_tribe.html')
+    if 'email' not in session:
+        return redirect('/')
+    return render_template('search_join.html')
