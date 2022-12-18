@@ -46,7 +46,7 @@ class Tribe:
 
     @classmethod
     def get_all_tribes(cls):
-        list_tribes = []
+        # list_tribes = []
         print("Success")
         query = "SELECT * FROM tribes;"
         print("More success")
@@ -61,9 +61,10 @@ class Tribe:
         #     }
         #     current_user = User(user_data)
         #     current_tribe.user = current_user
-        list_tribes.append(results)
+        # list_tribes.append(results)
         print("Even more success")
-        return list_tribes
+        print(results)
+        return results
 
     @classmethod
     def get_all_with_users(cls):
