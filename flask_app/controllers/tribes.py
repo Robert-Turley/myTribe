@@ -36,4 +36,5 @@ def create_tribe():
 def display_search_tribe():
     if 'email' not in session:
         return redirect('/')
-    return render_template('search_join.html')
+    list_tribes = Tribe.get_all_tribes()
+    return render_template('search_join.html', list_tribes = list_tribes)

@@ -7,8 +7,25 @@
     <title>Search/Join Tribe</title>
 </head>
 <body>
-    <h1>Testing 123...</h1>
-
+    <h1>{{session['first_name']}}</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Cause</th>
+            <th>Funds</th>
+            <th></th>
+        </tr>
+        {% for tribe in list_tribes: %}
+        <tr>
+            <td>{{tribe.name}}</td>
+            <td>{{tribe.location}}</td>
+            <td>{{tribe.cause}}</td>
+            <td>{{tribe.funds}}</td>
+        </tr>
+        {% endfor %}
+        <!-- <td><a href="#">Request to Join</a></td> -->
+    </table>
     <a href="/dashboard">Home</a>
 </body>
 </html>

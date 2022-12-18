@@ -26,6 +26,52 @@ class Tribe:
     # def find_all():
     #     query = "SELECT * FROM tribes JOIN users ON users.tribe_id = tribes.id"
 
+    # @classmethod
+    # def get_all_tribes(cls):
+    #     list_tribes = []
+    #     query = "SELECT * FROM tribes JOIN users ON users.tribe_id = tribes.id;"
+    #     results = connectToMySQL(DATABASE).query_db(query)
+    #     for row in results:
+    #         current_tribe = cls(row)
+    #         user_data = {
+    #             **row,
+    #             "created_at": row['users.created_at'],
+    #             "updated_at": row['users.updated_at'],
+    #             "id": row['users.id']
+    #         }
+    #         current_user = User(user_data)
+    #         current_tribe.user = current_user
+    #         list_tribes.append(current_tribe)
+    #     return list_tribes
+
+    @classmethod
+    def get_all_tribes(cls):
+        list_tribes = []
+        print("Success")
+        query = "SELECT * FROM tribes;"
+        print("More success")
+        results = connectToMySQL(DATABASE).query_db(query)
+        # for row in results:
+        #     current_tribe = cls(row)
+        #     user_data = {
+        #         **row,
+        #         "created_at": row['users.created_at'],
+        #         "updated_at": row['users.updated_at'],
+        #         "id": row['users.id']
+        #     }
+        #     current_user = User(user_data)
+        #     current_tribe.user = current_user
+        list_tribes.append(results)
+        print("Even more success")
+        return list_tribes
+
+    @classmethod
+    def get_all_with_users(cls):
+        query = "SELECT * FROM tribes JOIN users ON users.tribe_id = tribes.id;"
+        result = connectToMySQL(DATABASE).query_db(query)
+        list_tribes = []
+        for row in result:
+            current_tribe = cls(row)
 
     # @classmethod
     # def get_users_for_tribe(cls,data):
